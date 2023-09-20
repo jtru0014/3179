@@ -10,7 +10,7 @@
   <script>
     const spec = {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "Price of Petrol Per Litre ($US) 2022",
+  "title": "Gallons of Petrol Used Per Capita (2022)",
   "width": 850,
   "height": 450,
   "data": {
@@ -26,13 +26,13 @@
           "as": "note"
         }
       ],
-      "mark": {"type": "geoshape", "fill": "gray", "stroke": "white"},
+      "mark": {"type": "geoshape", "fill": "lightgray", "stroke": "white"},
       "encoding": {"tooltip": {"field": "note"}}
     },
     {
         "data": {
         "url": "https://raw.githubusercontent.com/jtru0014/3179/main/Week9Hw/js/ne_110m_ocean.topojson",
-        "format": {"type": "topojson", "feature": "ne_110m"}
+        "format": {"type": "topojson", "feature": "oceans"}
       },
       "mark": {"type": "geoshape", "fill": "skyblue"}
     },
@@ -41,7 +41,7 @@
         "url": "https://raw.githubusercontent.com/jtru0014/3179/main/Week9Hw/js/ne_110m.topojson",
         "format": {"type": "topojson", "feature": "ne_110m_graticules_30"}
       },
-      "mark": {"type": "geoshape", "fill": null, "stroke": "lightgray"}
+      "mark": {"type": "geoshape", "fill": null, "stroke": "gray"}
     },
     {
       "transform": [
@@ -62,6 +62,7 @@
         "color": {
           "field": "Yearly Gallons Per Capita",
           "type": "quantitative",
+          "title": "Gallons Per Capita",
           "scale": {
             "type": "saturation",
             "domain": [0, 250, 500, 1000, 3700],
