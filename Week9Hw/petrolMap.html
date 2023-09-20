@@ -10,9 +10,9 @@
   <script>
     const spec = {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "HA (10 Oct 2020)",
-  "width": 800,
-  "height": 400,
+  "title": "Price of Petrol Per Litre ($US) 2022",
+  "width": 850,
+  "height": 450,
   "data": {
     "url": "https://raw.githubusercontent.com/jtru0014/3179/main/Week9Hw/js/ne_110m_admin_0_countries.topojson",
     "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
@@ -26,7 +26,7 @@
           "as": "note"
         }
       ],
-      "mark": {"type": "geoshape", "fill": "lightgray", "stroke": "white"},
+      "mark": {"type": "geoshape", "fill": "gray", "stroke": "white"},
       "encoding": {"tooltip": {"field": "note"}}
     },
     {
@@ -52,33 +52,25 @@
               "url": "https://raw.githubusercontent.com/jtru0014/3179/main/Week9Hw/data/Petrol%20Dataset%20June%2023%202022.csv"
             },
             "key": "Country",
-            "fields": ["Price Per Liter (USD)"]
+            "fields": ["Yearly Gallons Per Capita"]
           }
         },
-        {
-          "calculate": "datum.Confirmed/datum.Population * 10000",
-          "as": "Confirmed per 10,000 population"
-        }
+       
       ],
       "mark": {"type": "geoshape", "stroke": "white"},
       "encoding": {
         "color": {
-          "field": "Confirmed per 10,000 population",
+          "field": "Yearly Gallons Per Capita",
           "type": "quantitative",
           "scale": {
-            "type": "threshold",
-            "domain": [1, 10, 100],
-            "range": ["#fdbe85", "#fd8d3c", "#e6550d", "#a63603"]
+            "type": "saturation",
+            "domain": [0, 250, 500, 1000, 3700],
+            "range": ["#fff639", "#f2c411", "#de9400", "#c36500", "#a33800"]
           }
         },
         "tooltip": [
           {"field": "properties.NAME", "type": "nominal", "title": "Country"},
-          {"field": "Active", "type": "quantitative"},
-          {
-            "field": "Confirmed per 10,000 population",
-            "type": "quantitative",
-            "format": ".2f"
-          }
+          {"field": "Yearly Gallons Per Capita", "type": "quantitative"},
         ]
       }
     }
