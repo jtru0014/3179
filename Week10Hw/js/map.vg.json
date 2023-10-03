@@ -1,0 +1,47 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Yearly Gallons Per Capita ($US) 2022",
+  "width": 700,
+  "height": 300,
+  "projection": {"type": "equalEarth"},
+  "data": {
+    "url": "https://raw.githubusercontent.com/jtru0014/3179/main/Week9Hw/js/ne_110m_admin_0_countries.topojson",
+    "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
+  },
+  "background": "mintcream",
+  "transform": [
+    {
+      "lookup": "properties.NAME",
+      "from": {
+        "data": {
+          "url": "https://raw.githubusercontent.com/jtru0014/3179/main/Week9Hw/data/Petrol%20Dataset%20June%2023%202022.csv"
+        },
+        "key": "Country",
+        "fields": ["Yearly Gallons Per Capita"]
+      }
+    }
+  ],
+  "layer": [
+    {
+      "mark": {"type": "geoshape"},
+      "encoding": {
+        "color": {
+          "field": "Yearly Gallons Per Capita",
+          "type": "quantitative",
+          "scale": {"type": "log"}
+        }
+      }
+    },
+    {
+      "mark": {"type": "geoshape", "fill": "grey"}, 
+      "transform": [{"filter": "datum['Yearly Gallons Per Capita'] === null || datum['Country'] === null"}]
+      
+    }
+  ],
+  "encoding": {
+    "tooltip": [
+      {"field": "properties.NAME", "type": "ordinal", "title": "Country"},
+      {"field": "Yearly Gallons Per Capita", "type": "quantitative"}
+    ]
+  }
+}
