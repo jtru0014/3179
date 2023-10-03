@@ -2,8 +2,8 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "Top 10 Countries with Price Per Liter of Petrol",
   "title": "Top 10 Countries with Price Per Liter of Petrol ($US) 2022",
-  "width": 600,
-  "height": 300,
+  "width": 800,
+  "height": 500,
   "data": {
     "url": "https://raw.githubusercontent.com/jtru0014/3179/main/Week9Hw/data/Petrol%20Dataset%20June%2023%202022.csv"
   },
