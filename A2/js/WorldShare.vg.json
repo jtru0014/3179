@@ -1,29 +1,33 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 400,
-    "height": 250,
-    "data": {
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 300,
+  "height": 250,
+  "data": {
       "url": "https://raw.githubusercontent.com/jtru0014/3179/main/A2/data/Petrol%20Dataset%20June%2023%202022.csv"
-    },
-    "transform": [
+  },
+  "transform": [
       {
-        "window": [{"op": "rank", "as": "rank"}],
-        "sort": [{"field": "rank", "order": "descending"}]
+          "window": [{"op": "rank", "as": "rank"}],
+          "sort": [{"field": "rank", "order": "descending"}]
       },
       {
-        "filter": {"field": "rank", "lte": 10}
+          "filter": {"field": "rank", "lte": 10}
       }
-    ],
-    "mark": "rect",
-    "encoding": {
+  ],
+  "mark": "rect",
+  "encoding": {
       "x": {"field": "Country", "type": "nominal"},
-      "y": {"field": "World Share", "type": "nominal"},
+      "y": {
+          "field": "World Share",
+          "type": "nominal",
+          "sort": "-y" 
+      },
       "color": {"field": "Country", "type": "nominal"},
       "tooltip": [
-        {"field": "Country", "type": "nominal"},
-        {"field": "World Share", "type": "nominal"}
+          {"field": "Country", "type": "nominal"},
+          {"field": "World Share", "type": "nominal"}
       ]
-    },
-    "title": "Top 10 Countries with the Highest World Share"
+  },
+  "title": "Top 10 Countries with the Highest World Share"
 }
   

@@ -26,7 +26,8 @@
           "field": "Country",
           "type": "nominal",
           "axis": {"labelAngle": 0, "labelAlign": "right", "labelBaseline": "middle"},
-          "title": null  
+          "title": null
+          
         },
         "x": {
           "field": "Price Per Liter (USD)",
@@ -43,7 +44,7 @@
         },
         "tooltip": [
           {"field": "Country", "type": "nominal", "title": "Country"},
-          {"field": "Price Per Liter (USD)", "type": "quantitative", "title": "Price Per Liter (USD)"}
+          {"field": "Price Per Liter (USD)", "type": "quantitative", "title": "Price Per Litre (USD)"}
         ]
       }
     },

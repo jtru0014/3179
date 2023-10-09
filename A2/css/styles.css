@@ -50,4 +50,8 @@
 	background-color: #f7f7f7; /* Set the background color */
 	border: 1px solid #ddd; /* Add a border for separation */
 	border-radius: 5px; /* Add rounded corners for a softer look */
-  }
+}
+
+.left-align {
+    text-align: left;
+}

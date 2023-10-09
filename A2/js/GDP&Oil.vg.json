@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": "Fuel Consumption vs GDP (Per Capita)",
-  "width": 450,
+  "width": 365,
   "height": 300,
   "data": {
     "url": "https://raw.githubusercontent.com/jtru0014/3179/main/A2/data/Petrol%20Dataset%20June%2023%202022.csv"
