@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.22.1"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.5.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.21.0"></script>
+  
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
+    integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Google font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+
+  <!-- CSS file -->
+  <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
+
+  </head>
+  <body style="background-color: white;">
+    <div class="container">
+      <div class="text-section">
+        <div class="pure-g" style="text-align: center;">
+            <div class="pure-u-1">
+              <h1>Global Petrol Prices & GDP in 2022</h1>
+              <p><i>Many factors have impacted the rising costs on the sourcing and buying of petrol over the years.</i></p>
+              <p><i>This research is based on a global dataset that reviews the costs and factors surrounding petrol in 2022...</i></p>
+            </div>
+        </div>
+      </div>
+      <br>
+      <br>
+      <br>
+      <div class="text-section">
+        <div class="pure-g" style="text-align: center;">
+          <div class="pure-u-1 pure-u-md-1-3">
+            <h2>Global Price Per Liter of Petrol ($US) 2022</h2>
+            <div id="vis1"></div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="text-section">
+        <div class="pure-g" style="text-align: center;">
+          <div class="pure-u-1-1"><h2>Petrol Vs GDP</h2></div>
+          <div class="pure-u-1-2 pure-u-md-1-2" style="width: 50%;"><div id="vis2"></div></div>
+          <div class="pure-u-1-2 pure-u-md-1-2" style="width: 50%;"><div id="vis3"></div></div>
+          <div class="pure-u-1-1"><div class="w3-container custom-container"><p>
+          The comparison between these top ten countries in categories of <b>Price Per Litre ($US)</b> 
+          and <b>Highest GDP</b> show that having <b>higher GDP does not link to countries with expensive fuel.</b>
+          In fact from closer analysis, only Norway appears in both graphs and Iceland, possibly because 
+          it is harder to source fuel in those countries, similar to Tonga and Niue which are islands that 
+          can make it harder to source.  
+          </p></div>
+        </div>
+      </div>
+      <br>
+      <div class="pure-g" style="text-align: center;">
+        <div class="pure-u-1-1"><h2>Petrol Vs GDP</h2></div>
+        <div class="pure-u-1-2 pure-u-md-1-2"><div id="vis4"></div></div>
+        <div class="pure-u-1-2 pure-u-md-1-2">
+        <div class="w3-container custom-container"><p>
+        <b>World Share</b> represents the amount of petrol shared among each country represented as a 
+        percentage to show how much compared to other countries they share of petrol as a resource.
+        Data shows that <b>China</b> shares the greatest share of petrol with <b>13%</b> followed by the United 
+        States and then countries like Russia and Saudi Arabia who are large petroleum producers 
+        due to their land containing large oil deposits.
+
+        </p></div><br></div>
+      
+        <div class="pure-u-1-2 pure-u-md-1-2"><div id="vis5"></div></div>
+        <div class="pure-u-1-2 pure-u-md-1-2">
+        <p>sadhbasuihdashdu
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+          sed do eiusmod tempor incididunt ut labore et dolore 
+          magna aliqua. Ut enim ad minim veniam, quis nostrud 
+          exercitation ullamco laboris nisi ut aliquip ex 
+          ea commodo consequat. Duis aute irure dolor in 
+          reprehenderit in voluptate velit esse cillum 
+          dolore eu fugiat nulla pariatur. Excepteur 
+          sint occaecat cupidatat non proident, sunt 
+          in culpa qui officia deserunt mollit anim id est laborum.
+        </p></div>
+      <br>
+      
+      <div class="pure-u-1-2 pure-u-md-1-2">
+      <p>sadhbasuihdashdu
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+        sed do eiusmod tempor incididunt ut labore et dolore 
+        magna aliqua. Ut enim ad minim veniam, quis nostrud 
+        exercitation ullamco laboris nisi ut aliquip ex 
+        ea commodo consequat. Duis aute irure dolor in 
+        reprehenderit in voluptate velit esse cillum 
+        dolore eu fugiat nulla pariatur. Excepteur 
+        sint occaecat cupidatat non proident, sunt 
+        in culpa qui officia deserunt mollit anim id est laborum.
+      </p></div>
+      <div class="pure-u-1-2 pure-u-md-1-2"><div id="vis6"></div></div>
+    </div>
+    </div>
+    <br>
+    </div>
+      
+
+  
+
+<script type="text/javascript">
+
+  var spec1 = "js/map.vg.json";
+  var spec2 = "js/Top10Petrol.vg.json";
+  var spec3 = "js/Top10GDP.vg.json";
+  var spec4 = "js/WorldShare.vg.json";
+  var spec5 = "js/GDP&Oil.vg.json";
+  var spec6 = "js/AvgPrice.vg.json";
+  var spec7 = "js/InteractiveBar.vg.json";
+
+  vegaEmbed('#vis1', spec1, { "actions": false });
+
+  vegaEmbed('#vis2', spec2).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+
+  vegaEmbed('#vis3', spec3, { "actions": false });
+  vegaEmbed('#vis4', spec4, { "actions": false });
+  vegaEmbed('#vis5', spec5, { "actions": false });
+  vegaEmbed('#vis6', spec6, { "actions": false });
+  vegaEmbed('#vis7', spec7, { "actions": false });
+</script>
+
+</body>
+</html>
