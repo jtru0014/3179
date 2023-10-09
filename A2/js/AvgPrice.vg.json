@@ -1,0 +1,40 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Average Price Per Liter of Petrol ($US) 2022",
+  "width": 200,
+  "height": 300,
+  "data": {
+    "url": "https://raw.githubusercontent.com/jtru0014/3179/main/A2/data/Petrol%20Dataset%20June%2023%202022.csv"
+  },
+  "layer": [
+    {
+      "mark": "boxplot",
+      "encoding": {
+        "y": {
+          "field": "Price Per Liter (USD)",
+          "type": "quantitative",
+          "scale": {"zero": false}
+        },
+        "tooltip": [
+          {"field": "Country", "type": "ordinal"},
+          {"field": "Price Per Liter (USD)", "type": "quantitative", "format": "$,.2f"}
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "bottom",
+        "dx": 5,
+        "color": "black"
+      }
+
+    }
+  ]
+}
+
+  
+  
+  
+  
