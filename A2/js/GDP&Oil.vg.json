@@ -6,7 +6,27 @@
   "data": {
     "url": "https://raw.githubusercontent.com/jtru0014/3179/main/A2/data/Petrol%20Dataset%20June%2023%202022.csv"
   },
+  "params": [
+    {
+      "name": "Country_selection",
+      "bind":{
+        "input": "select",
+        "options": [
+          null,
+          "Australia",
+          "Other"
+        ],
+        "labels": [
+          "Show All",
+          "Australia",
+          "Other"
+        ],
+        "name": "Country Selection: "
+      }
+    }
+  ],
   "transform": [
+    {"filter": "Country_selection == null || datum.CountrySelection == Country_selection"},
     {
       "calculate": "datum.Country === 'Australia' ? 'Australia' : 'Other'",
       "as": "Legend"
@@ -21,6 +41,12 @@
       {"field": "Yearly Gallons Per Capita", "type": "quantitative", "title": "Yearly Gallons Per Capita"},
       {"field": "GDP Per Capita (USD)", "type": "quantitative", "title": "GDP Per Capita (USD)"}
     ],
+    "shape": {
+      "field": "Legend",
+      "type": "nominal",
+      "title": "Country",
+      "scale": {"domain": ["Australia", "Other"], "range": ["square", "circle"]}
+    },
     "color": {
       "field": "Legend",
       "type": "nominal",
@@ -29,4 +55,6 @@
     }
   }
 }
+
+
 
