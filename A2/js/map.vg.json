@@ -7,24 +7,35 @@
     "url": "https://raw.githubusercontent.com/jtru0014/3179/main/A2/js/ne_110m_admin_0_countries.topojson",
     "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
   },
-  "background": "#f2f2f2",
+  "background": "#ffffff",
   "params": [
     {
-      "name": "Petrol_Above",
+      "name": "Petrol_Lower",
       "value": 0,
-      "bind":{
+      "bind": {
         "input": "range",
         "min": 0,
         "max": 15,
         "step": 0.1,
-        "name": "Price Per Litre: "
+        "name": "Price Per Litre (Lower Bound): "
+      }
+    },
+    {
+      "name": "Petrol_Upper",
+      "value": 15,
+      "bind": {
+        "input": "range",
+        "min": 0,
+        "max": 15,
+        "step": 0.1,
+        "name": "Price Per Litre (Upper Bound): "
       }
     }
-    
-  ],
+  ],  
   "transform": [
+    {"filter": "Petrol_Lower == 0 || datum['Price Per Liter (USD)'] >= Petrol_Lower && datum['Price Per Liter (USD)'] <= Petrol_Upper "},
+
     { 
-      
       "lookup": "properties.NAME",
       "from": {
         "data": {

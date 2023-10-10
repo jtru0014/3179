@@ -51,7 +51,7 @@
       "field": "Legend",
       "type": "nominal",
       "title": "Country",
-      "scale": {"domain": ["Australia", "Other"], "range": ["red", "black"]}
+      "scale": {"domain": ["Australia", "Other"], "range": ["Red", "black"]}
     }
   }
 }

@@ -7,10 +7,10 @@
   "data": {
     "url": "https://raw.githubusercontent.com/jtru0014/3179/main/A2/data/Petrol%20Dataset%20June%2023%202022.csv"
   },
-  "background": "mintcream",
+  "background": "white",
   "transform": [
     {"filter": {"field": "GDP Per Capita (USD)", "valid": true}},
-    {"window": [{"op": "rank", "as": "rank"}], "sort": [{"field": "GDP Per Capita (USD)", "order": "descending"}]},
+    {"window": [{"op": "rank", "as": "rank"}], "sort": [{"field": "GDP Per Capita (USD)", "order": "ascending"}]},
     {"filter": {"field": "rank", "lte": 10}}
   ],
   "layer": [
@@ -35,7 +35,7 @@
         },
         "color": {
           "field": "Country",
-          "scale": {"scheme": "category20"}
+          "scale": {"scheme": "blues"}
         },
         "opacity": {
           "condition": {"param": "selectc", "value": 1},

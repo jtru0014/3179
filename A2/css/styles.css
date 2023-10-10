@@ -13,7 +13,7 @@
 	border: 1px solid black; /* Add a border around .container */
 	padding: 20px; /* Add some padding */
 	margin: 0 auto;
-	background-color: peachpuff;
+	background-color: rgb(95, 95, 95);
 }
 
 .custom-container {
@@ -47,11 +47,16 @@
 	color: #333; /* Set the text color */
 	margin: 20px; /* Add margin to create spacing around the text section */
 	padding: 20px; /* Add padding to create space within the text section */
-	background-color: #f7f7f7; /* Set the background color */
+	background-color: #ffffff; /* Set the background color */
 	border: 1px solid #ddd; /* Add a border for separation */
 	border-radius: 5px; /* Add rounded corners for a softer look */
 }
 
 .left-align {
     text-align: left;
+}
+
+h1 {
+	font-family:Verdana, Geneva, Tahoma, sans-serif;
+	font-size: 50px;
 }

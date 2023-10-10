@@ -18,6 +18,18 @@
   <!-- CSS file -->
   <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
 
+  <style>
+
+    body {
+      background-image: url('background.jpg');
+      background-size: cover; /* Adjust this based on how you want the image to be displayed */
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: center center;
+      background-color: rgb(136, 136, 136); /* Fallback color if the image doesn't load */
+    }
+  </style>
+
   </head>
   <body style="background-color: white;">
     <div class="container">
@@ -25,17 +37,17 @@
         <div class="pure-g" style="text-align: center;">
             <div class="pure-u-1">
               <h1>Global Petrol Prices & GDP in 2022</h1>
-              <p><i>Many factors have impacted the rising costs on the sourcing and buying of petrol over the years.</i></p>
-              <p><i>This research is based on a global dataset that reviews the costs and factors surrounding petrol in 2022...</i></p>
+              <h3><i><b>Data Visualisation 2 - Jordan Trubiano</b></i></h3>
+              <p><i>Many factors have impacted the rising costs on the sourcing and buying of petrol over the years.<br>
+              This research is based on a global dataset that reviews the costs and factors surrounding petrol in 2022...</i></p>
             </div>
         </div>
       </div>
       <br>
-      <br>
       <div class="text-section">
         <div class="pure-g" style="text-align: center;">
           <div class="pure-u-1 pure-u-md-1-3">
-            <h2>Global Price Per Liter of Petrol ($US) 2022</h2>
+            <h2><b><u>Global Price Per Liter of Petrol ($US) 2022</u></b></h2>
             <div id="vis1"></div>
           </div>
         </div>
@@ -43,7 +55,7 @@
 
       <div class="text-section">
         <div class="pure-g" style="text-align: center;">
-          <div class="pure-u-1-1 left-align"><h2><i>Petrol Vs GDP</i></h2></div>
+          <div class="pure-u-1-1 left-align"><h2><i><b><u>Petrol Vs GDP</u></b></i></h2></div>
           <div class="pure-u-1-2 pure-u-md-1-2" style="width: 50%;"><div id="vis2"></div></div>
           <div class="pure-u-1-2 pure-u-md-1-2" style="width: 50%;"><div id="vis3"></div></div>
           <div class="pure-u-1-1"><div class="w3-container custom-container"><p>
@@ -59,12 +71,13 @@
       
       <div class="text-section">
         <div class="pure-g" style="text-align: center;">
-          <div class="pure-u-1-1 left-align"><h2><i>World Share</i></h2></div>
+          <div class="pure-u-1-1 left-align"><h2><i><b><u>World Share</u></b></i></h2></div>
           <div class="pure-u-1-2 pure-u-md-1-2"><div id="vis4"></div></div>
           <div class="pure-u-1-2 pure-u-md-1-2">
           <div class="w3-container custom-container"><p>
           <b>World Share</b> represents the amount of petrol shared among each country represented as a 
-          percentage to show how much compared to other countries they share of petrol as a resource.
+          percentage to show how much compared to other countries they share of petrol as a resource.<br>
+          <br>
           Data shows that <b>United States</b> shares the greatest share of petrol with <b>20%</b> followed by China and then countries like Russia and Saudi Arabia who are large petroleum producers 
           due to their land containing large oil deposits.</p></div><br></div>
       </div> 
@@ -72,7 +85,7 @@
       
       <div class="text-section">
         <div class="pure-g" style="text-align: center;">
-          <div class="pure-u-1-1 left-align"><h2><i>Fuel Consumption</i></h2></div>
+          <div class="pure-u-1-1 left-align"><h2><i><b><u>Fuel Consumption</u></b></i></h2></div>
           <div class="pure-u-1-2 pure-u-md-1-2"><div id="vis5"></div></div>
           <div class="pure-u-1-2 pure-u-md-1-2">
           <div class="w3-container custom-container"><p>
