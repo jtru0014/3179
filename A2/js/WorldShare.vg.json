@@ -33,7 +33,10 @@
             "scale": {
                 "domain": ["United States of America", "China", "India", "Japan", "Russia", "Germany", "Canada", "South Korea", "Saudi Arabia", "Brazil"],
                 "range": ["#CB4534", "#F94B00", "#FA7106", "#FB8C36", "#FFBC49", "#FBC81F", "#FCE751", "#FFF61D", "#F5FD88", "#FDF99D"]}},
-
+            "opacity": {
+                "condition": {"param": "selectc", "value": 1},
+                "value": 0
+            },
             "tooltip": [
                 {"field": "Country", "type": "nominal"},
                 {"field": "World Share", "type": "nominal"}
@@ -42,7 +45,23 @@
         
         "title": "Top 10 Countries with the Highest World Share"
         
-    }
+    },
+    {
+        "mark": {
+          "type": "text",
+          "align": "left",
+          "baseline": "bottom",
+          "dx": 10,
+          "dy": -10,
+          "fontSize": 14,
+          "font": "calibri light"
+        },
+        "encoding": {
+          "x": {"value": 50},  
+          "y": {"value": 38}, 
+          "text": {"value": "United States has the biggest share (20%)"}
+        }
+      }
   ]
 }
   

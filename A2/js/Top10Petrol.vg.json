@@ -12,6 +12,7 @@
   {"calculate": "toNumber(datum['Price Per Liter (USD)'])", "as": "Price Per Liter (USD)Numeric"},
   {"window": [{"op": "rank", "as": "rank"}], "sort": [{"field": "Price Per Liter (USD)Numeric", "order": "descending"}]},
   {"filter": {"field": "rank", "lte": 10}}
+  
   ],
   "layer":[
       {

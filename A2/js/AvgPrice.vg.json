@@ -19,9 +19,6 @@
           "type": "quantitative",
           "scale": {"zero": false}
         },
-        "x": {
-         
-        },
         "tooltip": [
           {"field": "Country", "type": "ordinal"},
           {"field": "Price Per Liter (USD)", "type": "quantitative", "format": "$,.2f"}
@@ -35,7 +32,8 @@
         "baseline": "bottom",
         "dx": 10,
         "dy": -10,
-        "fontSize": 15
+        "fontSize": 16,
+        "font": "calibri light"
       },
       "encoding": {
         "x": {"value": 220},  
