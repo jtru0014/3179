@@ -8,10 +8,10 @@
 }
 
 .container {
-	max-width: 1200px; /* Adjust the max-width as needed */
+	max-width: 1200px; 
 	text-align: center;
-	border: 1px solid black; /* Add a border around .container */
-	padding: 20px; /* Add some padding */
+	border: 1px solid black; 
+	padding: 20px; 
 	margin: 0 auto;
 	background-color: rgb(95, 95, 95);
 }
@@ -27,29 +27,22 @@
 	margin: 10px;	
 }
 
-/* Custom styles for text inside the container */
 .custom-container p {
 	font-size: 18px;
 	color: #333;
 }
 
-.body {
-	background-image: url('background.jpg'); 
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-attachment: fixed;
-}
 
 .text-section {
-	font-family: Arial, sans-serif; /* Specify the font-family you want to use */
-	font-size: 16px; /* Set the font size */
-	line-height: 1.5; /* Set the line height for readability */
-	color: #333; /* Set the text color */
-	margin: 20px; /* Add margin to create spacing around the text section */
-	padding: 20px; /* Add padding to create space within the text section */
-	background-color: #ffffff; /* Set the background color */
-	border: 1px solid #ddd; /* Add a border for separation */
-	border-radius: 5px; /* Add rounded corners for a softer look */
+	font-family: Arial, sans-serif; 
+	font-size: 16px; 
+	line-height: 1.5; 
+	color: #333;
+	margin: 20px; 
+	padding: 20px; 
+	background-color: #ffffff; 
+	border: 1px solid #ddd; 
+	border-radius: 5px; 
 }
 
 .left-align {

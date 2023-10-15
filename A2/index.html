@@ -18,17 +18,17 @@
   <!-- CSS file -->
   <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
 
-  <style>
+    <style>
+      body {
+        background-image: url('background.jpg');
+        background-size: cover; 
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center center;
+        background-color: rgb(136, 136, 136); 
+      }
+    </style>
 
-    body {
-      background-image: url('background.jpg');
-      background-size: cover; /* Adjust this based on how you want the image to be displayed */
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      background-position: center center;
-      background-color: rgb(136, 136, 136); /* Fallback color if the image doesn't load */
-    }
-  </style>
 
   </head>
   <body style="background-color: white;">
@@ -40,7 +40,9 @@
               <h3><i><b>Data Visualisation 2 - Jordan Trubiano</b></i></h3>
               <p><i>Many factors have impacted the rising costs on the sourcing and buying of petrol over the years.<br>
               This research is based on a global dataset that reviews the costs and factors surrounding petrol in 2022...</i></p>
+             
             </div>
+            
         </div>
       </div>
       <br>
@@ -70,7 +72,7 @@
       </div>
       
       <div class="text-section">
-        <div class="pure-g" style="text-align: center;">
+        <div class="pure-g" style="text-align: left;">
           <div class="pure-u-1-1 left-align"><h2><i><b><u>World Share</u></b></i></h2></div>
           <div class="pure-u-1-2 pure-u-md-1-2"><div id="vis4"></div></div>
           <div class="pure-u-1-2 pure-u-md-1-2">
@@ -84,7 +86,7 @@
       </div> 
       
       <div class="text-section">
-        <div class="pure-g" style="text-align: center;">
+        <div class="pure-g" style="text-align: left;">
           <div class="pure-u-1-1 left-align"><h2><i><b><u>Fuel Consumption</u></b></i></h2></div>
           <div class="pure-u-1-2 pure-u-md-1-2"><div id="vis5"></div></div>
           <div class="pure-u-1-2 pure-u-md-1-2">
@@ -100,7 +102,24 @@
       </div> 
       </div>
     <br>
+    
+
+    <div class="text-section">
+      <div class="pure-g" style="text-align: left;">
+        <div class="pure-u-1-1 left-align"><h2><i><b><u>Average Petrol Price</u></b></i></h2></div>
+        <div class="pure-u-1-2 pure-u-md-1-2"><div id="vis6"></div></div>
+        <div class="pure-u-1-2 pure-u-md-1-2">
+        <div class="w3-container custom-container"><p>
+        <B>The Average Petrol Price</B> is measured to be <b>$1.40</b> across the globe with <b>North Korea</b> standing 
+        out with a high of <b>$14.50</b> and <b>Libya</b> having only <b>3 cents</b>. In terms of Australia, it sits very
+        close to the average with <b>$1.38</b> making it very reasonable and quite affordable compared to other countries who
+        may have it harder.
+        
+      </p></div><br></div>
+    </div> 
     </div>
+  <br>
+  </div>
       
 
   
@@ -116,16 +135,13 @@
   var spec7 = "js/InteractiveBar.vg.json";
 
   vegaEmbed('#vis1', spec1, { "actions": false });
-
-  vegaEmbed('#vis2', spec2).then(function(result) {
-    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-  }).catch(console.error);
-
+  vegaEmbed('#vis2', spec2, {"actions": false}); 
   vegaEmbed('#vis3', spec3, { "actions": false });
   vegaEmbed('#vis4', spec4, { "actions": false });
   vegaEmbed('#vis5', spec5, { "actions": false });
   vegaEmbed('#vis6', spec6, { "actions": false });
   vegaEmbed('#vis7', spec7, { "actions": false });
+
 </script>
 
 </body>

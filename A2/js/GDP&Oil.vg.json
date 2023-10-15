@@ -5,6 +5,7 @@
   "height": 300,
   "data": {
     "url": "https://raw.githubusercontent.com/jtru0014/3179/main/A2/data/Petrol%20Dataset%20June%2023%202022.csv"
+    
   },
   "params": [
     {
@@ -31,7 +32,7 @@
       "calculate": "datum.Country === 'Australia' ? 'Australia' : 'Other'",
       "as": "Legend"
     }
-  ],
+  ], 
   "mark": "point",
   "encoding": {
     "y": {"field": "Yearly Gallons Per Capita", "type": "quantitative"},
@@ -53,6 +54,7 @@
       "title": "Country",
       "scale": {"domain": ["Australia", "Other"], "range": ["Red", "black"]}
     }
+    
   }
 }
 

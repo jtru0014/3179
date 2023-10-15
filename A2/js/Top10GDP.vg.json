@@ -3,59 +3,51 @@
   "description": "Top 10 Countries with Highest GDP Per Capita (US) 2022",
   "title": "Top 10 Countries with Highest GDP Per Capita (US) 2022",
   "width": 280,
-  "height": 350, 
+  "height": 350,
   "data": {
     "url": "https://raw.githubusercontent.com/jtru0014/3179/main/A2/data/Petrol%20Dataset%20June%2023%202022.csv"
   },
-  "background": "white",
   "transform": [
-    {"filter": {"field": "GDP Per Capita (USD)", "valid": true}},
-    {"window": [{"op": "rank", "as": "rank"}], "sort": [{"field": "GDP Per Capita (USD)", "order": "ascending"}]},
-    {"filter": {"field": "rank", "lte": 10}}
+  {"filter": {"field": "GDP Per Capita (USD)", "valid": true}},
+  {"calculate": "toNumber(datum['GDP Per Capita (USD)'])", "as": "GDP Per Capita (USD)Numeric"},
+  {"window": [{"op": "rank", "as": "rank"}], "sort": [{"field": "GDP Per Capita (USD)Numeric", "order": "descending"}]},
+  {"filter": {"field": "rank", "lte": 10}}
   ],
-  "layer": [
-    {
+  "layer":[
+      {
       "params": [{
-        "name": "selectc",
-        "select": {"type": "point", "fields": ["Country"]},
-        "bind": "legend"
+          "name": "selectc",
+          "select": {"type": "point", "fields": ["Country"]},
+          "bind": "legend"
       }],
-      "mark": {"type": "bar"},
       "encoding": {
-        "y": {
-          "field": "Country",
-          "type": "nominal",
-          "axis": {"labelAngle": 0, "labelAlign": "right", "labelBaseline": "middle"},
-          "title": null
-        },
-        "x": {
-          "field": "GDP Per Capita (USD)",
-          "type": "quantitative",
-          "title": "GDP Per Capita (USD)"
-        },
-        "color": {
-          "field": "Country",
-          "scale": {"scheme": "blues"}
-        },
-        "opacity": {
+      "y": {"field": "Country", "type": "nominal", "sort": {"field": "rank", "order": "ascending"}},
+
+      "x": {"field": "GDP Per Capita (USD)", "type": "quantitative" ,"title": "GDP Per Capita (USD)"},
+
+      "color": {"field": "Country", "type": "nominal", 
+      "scale": {
+        "domain": ["Luxembourg", "Switzerland", "Macao", "Ireland", "Cayman Islands", "Norway", "United States of America", "Denmark", "Singapore", "Iceland"],
+        "range": ["#2A800E", "#3CA918", "#34BC23", "#34D714", "#68E440", "#6FF685", "#84FCAC", "#84FCC3", "#A1F6D7", "#A0FFE3"]}},
+
+      "opacity": {
           "condition": {"param": "selectc", "value": 1},
-          "value": 0.2
-        },
-        "tooltip": [
-          {"field": "Country", "type": "nominal", "title": "Country"},
-          {"field": "GDP Per Capita (USD)", "type": "quantitative", "title": "GDP Per Capita (USD)", "format": "$,.2f"}
-        ]
+          "value": 0
+      },
+      "text": {"field": "GDP Per Capita (USD)", "type": "quantitative"},
+      "tooltip": [
+          {"field": "Country", "type": "nominal"},
+          {"field": "GDP Per Capita (USD)", "type": "quantitative", "format": "$,.2f"}
+      ]
+      },
+      "mark": {
+      "type": "bar",
+      "clip": true
       }
-    },
-    {
-      "mark": {"type": "text", "align": "left", "baseline": "middle", "dx": 5},
-      "encoding": {
-        "text": {"field": "GDP Per Capita (USD)", "type": "quantitative", "format": ",.2s"},
-        "color": {"value": "black"},
-        "x": {"aggregate": "max", "field": "GDP Per Capita (USD)"},
-        "y": {"field": "Country", "type": "nominal"}
       }
-    }
   ]
 }
+
+
+
 

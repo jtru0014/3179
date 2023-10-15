@@ -14,26 +14,35 @@
           "filter": {"field": "rank", "lte": 10}
       }
   ],
-  "params": [{
-    "name": "selectc",
-    "select": {"type": "point", "fields": ["Country"]},
-    "bind": "legend"
-  }],
-  "mark": "rect",
-  "encoding": {
-      "x": {"field": "Country", "type": "nominal", "sort": {"op": "mean", "field": "World Share", "order": "descending"}},
-      "y": {
-          "field": "World Share",
-          "type": "nominal",
-          "sort": "-y" 
-      },
-      "color": {"field": "Country", "type": "nominal", "scale": {"scheme": "bluepurple"}},
-      "tooltip": [
-          {"field": "Country", "type": "nominal"},
-          {"field": "World Share", "type": "nominal"}
-      ]
-  },
-  "title": "Top 10 Countries with the Highest World Share"
-}
+  "layer":[
+    {
+        "params": [{
+            "name": "selectc",
+            "select": {"type": "point", "fields": ["Country"]},
+            "bind": "legend"
+        }],
+        "mark": "rect",
+        "encoding": {
+            "x": {"field": "Country", "type": "nominal", "sort": {"op": "mean", "field": "World Share", "order": "descending"}},
+            "y": {
+                "field": "World Share",
+                "type": "nominal",
+                "sort": {"field": "rank", "order": "ascending"} 
+            },
+            "color": {"field": "Country", "type": "nominal", 
+            "scale": {
+                "domain": ["United States of America", "China", "India", "Japan", "Russia", "Germany", "Canada", "South Korea", "Saudi Arabia", "Brazil"],
+                "range": ["#CB4534", "#F94B00", "#FA7106", "#FB8C36", "#FFBC49", "#FBC81F", "#FCE751", "#FFF61D", "#F5FD88", "#FDF99D"]}},
 
+            "tooltip": [
+                {"field": "Country", "type": "nominal"},
+                {"field": "World Share", "type": "nominal"}
+            ]
+        },
+        
+        "title": "Top 10 Countries with the Highest World Share"
+        
+    }
+  ]
+}
   

@@ -7,56 +7,44 @@
   "data": {
     "url": "https://raw.githubusercontent.com/jtru0014/3179/main/A2/data/Petrol%20Dataset%20June%2023%202022.csv"
   },
-  "background": "white",
   "transform": [
-    {"filter": {"field": "Price Per Liter (USD)", "valid": true}},
-    {"window": [{"op": "rank", "as": "rank"}], "sort": [{"field": "Price Per Liter (USD)", "order": "descending"}]},
-    {"filter": {"field": "rank", "lte": 10}}
+  {"filter": {"field": "Price Per Liter (USD)", "valid": true}},
+  {"calculate": "toNumber(datum['Price Per Liter (USD)'])", "as": "Price Per Liter (USD)Numeric"},
+  {"window": [{"op": "rank", "as": "rank"}], "sort": [{"field": "Price Per Liter (USD)Numeric", "order": "descending"}]},
+  {"filter": {"field": "rank", "lte": 10}}
   ],
-  "layer": [
-    {
+  "layer":[
+      {
       "params": [{
-        "name": "selectc",
-        "select": {"type": "point", "fields": ["Country"]},
-        "bind": "legend"
+          "name": "selectc",
+          "select": {"type": "point", "fields": ["Country"]},
+          "bind": "legend"
       }],
-      "mark": {"type": "bar"},
       "encoding": {
-        "y": {
-          "field": "Country",
-          "type": "nominal",
-          "axis": {"labelAngle": 0, "labelAlign": "right", "labelBaseline": "middle"},
-          "title": null
-          
-        },
-        "x": {
-          "field": "Price Per Liter (USD)",
-          "type": "quantitative",
-          "title": "Price Per Liter of Petrol"
-        },
-        "color": {
-          "field": "Country",
-          "scale": {"scheme": "bluegreen"}
-        },
-        "opacity": {
+      "y": {"field": "Country", "type": "nominal", "sort": {"field": "rank", "order": "ascending"}},
+
+      "x": {"field": "Price Per Liter (USD)", "type": "quantitative" ,"title": "Price Per Liter (USD)"},
+
+      "color": {"field": "Country", "type": "nominal", 
+      "scale": {
+        "domain": ["North Korea", "Tonga", "Niue", "Hong Kong", "Norway", "Denmark", "Finland", "Iceland", "Greece", "Netherlands"],
+        "range": ["#0E36C8", "#3566CA", "#2C7AD3", "#168AE9", "#21A8DF", "#28B3D7", "#16BDE9", "#5CCFE8", "#16BDE9", "#85C1E9"]}},
+
+      "opacity": {
           "condition": {"param": "selectc", "value": 1},
-          "value": 0.2
-        },
-        "tooltip": [
-          {"field": "Country", "type": "nominal", "title": "Country"},
-          {"field": "Price Per Liter (USD)", "type": "quantitative", "title": "Price Per Litre (USD)", "format": "$,.2f"}
-        ]
+          "value": 0
+      },
+      "text": {"field": "Price Per Liter (USD)", "type": "quantitative"},
+      "tooltip": [
+          {"field": "Country", "type": "nominal"},
+          {"field": "Price Per Liter (USD)", "type": "quantitative", "format": "$,.2f"}
+      ]
+      },
+      "mark": {
+      "type": "bar",
+      "clip": true
       }
-    },
-    {
-      "mark": {"type": "text", "align": "left", "baseline": "middle", "dx": 5},
-      "encoding": {
-        "text": {"field": "Price Per Liter (USD)", "type": "quantitative", "format": "$,.2f"},
-        "color": {"value": "black"},
-        "x": {"aggregate": "max", "field": "Price Per Liter (USD)"},
-        "y": {"field": "Country", "type": "nominal"}
       }
-    }
   ]
 }
 

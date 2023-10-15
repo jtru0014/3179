@@ -1,0 +1,46 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "Top 10 Countries with Price Per Liter of Petrol",
+    "title": "Top 10 Countries with Price Per Liter of Petrol ($US) 2022",
+    "width": 380,
+    "height": 350,
+    "data": {
+      "url": "https://raw.githubusercontent.com/jtru0014/3179/main/A2/data/Petrol%20Dataset%20June%2023%202022.csv"
+    },
+    "transform": [
+    {"filter": {"field": "Price Per Liter (USD)", "valid": true}},
+    {"calculate": "toNumber(datum['Price Per Liter (USD)'])", "as": "Price Per Liter (USD)Numeric"},
+    {"window": [{"op": "rank", "as": "rank"}], "sort": [{"field": "Price Per Liter (USD)Numeric", "order": "descending"}]},
+    {"filter": {"field": "rank", "lte": 10}}
+    ],
+    "layer":[
+        {
+        "params": [{
+            "name": "selectc",
+            "select": {"type": "point", "fields": ["Country"]},
+            "bind": "legend"
+        }],
+        "encoding": {
+        "y": {"field": "Country", "type": "nominal", "sort": {"field": "rank", "order": "ascending"}},
+
+        "x": {"field": "Price Per Liter (USD)", "type": "quantitative" ,"title": "Price Per Liter (USD)"},
+
+        "color": {"field": "Country", "type": "nominal", "scale": {"scheme": "blues"}},
+
+        "opacity": {
+            "condition": {"param": "selectc", "value": 1},
+            "value": 0
+        },
+        "text": {"field": "Price Per Liter (USD)", "type": "quantitative"},
+        "tooltip": [
+            {"field": "Country", "type": "nominal"},
+            {"field": "Price Per Liter (USD)", "type": "quantitative", "format": "$,.2f"}
+        ]
+        },
+        "mark": {
+        "type": "bar",
+        "clip": true
+        }
+        }
+    ]
+}
